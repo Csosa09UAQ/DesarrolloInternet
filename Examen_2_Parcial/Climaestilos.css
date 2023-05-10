@@ -39,7 +39,7 @@ header >h3 {
 
 main {
     width: 100%;
-    height: calc(100% - 96px);
+    height: 100% ;
     background-color: #1877F2;
 }
 
@@ -90,10 +90,10 @@ main .Items_Weather{
     box-sizing: border-box;
     float: left;
     position: relative;
-    text-align: center;
+
 }
 
-.Searching .Txt_Search{
+.CuadrosBusqueda .Txt_Search{
     width: 60%;
     height: 80px;
     float:left;
@@ -108,7 +108,7 @@ main .Items_Weather{
     color: #A7A7A7;
 }
 
-.Searching .Boton{
+.CuadrosBusqueda .Boton{
     width: 13%;
     height: 80px;
     float:left;
@@ -120,7 +120,7 @@ main .Items_Weather{
     color: #FFFFFF;
 }
 
-.Searching .Text{
+.CuadrosBusqueda .Text{
     width: calc(27% - 80px);
     height: 80px;
     float:left;
