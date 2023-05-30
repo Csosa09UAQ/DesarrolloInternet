@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title>Document </title>
+        <meta charset="UTF-8">
+
+    </head>
+     <body>
+        <button onclick="saludar()">Saludar :)</button>
+        <script>
+            function saludar(){
+                alert("Hola Mundo");
+            }
+
+        </script>
+
+        <div
+            onmousemove = "mostrarCoordenadas(event)"
+            style="width: 500px; height:100px; background-color: red; margin-top: 16px;"
+
+        >   
+            Mueve el cursor aqui
+
+        </div>
+
+        <script>
+            function mostrarCoordenada(event)
+                console.log(event)
+                var x = event.clientX;
+                var y = event.clientY;
+
+        </script>
+
+        <br>
+
+        <input type="text" onkeydown="mostrarTecla(event)">
+
+
+    </body>
+</html>
