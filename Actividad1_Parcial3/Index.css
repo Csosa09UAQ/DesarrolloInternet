@@ -1,4 +1,20 @@
-#miTexto {
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+.PrimeraParte{
+    padding: 10px;
+}
+
+.Titulo{
+    margin-bottom: 10px;
+}
+
+#Texto {
     width: 300px;
     height: 30px;
     padding: 5px;
@@ -6,4 +22,65 @@
     border-radius: 4px;
     font-size: 16px;
   }
+
+
+
+#B_Agregar{
+    padding: 8px 4px;
+    background-color: blue;
+    color: white;
+    border-style: none;
+    border-radius: 4px;
+}
+
+.TextBoxAgregar {
+    display: flex;
+}
+
+.ListaGeneral{
+    display: flex;
+    width: 100%;
+}
+
+.EditarEliminar{
+    background-color: #707980;
+    border-style: none;
+    padding: 4px 8px;
+    border-radius: 2px;
+    margin: 2px;
+    color: white;
+}
+
+.Botones{
+    margin-right: auto;
+}
+
+.Lista{
+    width: 49%;
+    padding: 10px;
+}
+
+.Completado{
+    width: 49%;
+    padding: 10px;
+}
+
+.check{
+    margin-right: auto;
+}
+
+.Filas{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Tareas{
+    display: flex;
+    align-items: center;
+}
+
+.Botones{
+    display: flex;
+    align-items: center;
+}
   
