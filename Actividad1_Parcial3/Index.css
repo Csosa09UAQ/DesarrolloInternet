@@ -12,6 +12,13 @@
 
 .Titulo{
     margin-bottom: 10px;
+    
+}
+
+.Titulo>h3{
+    color: gainsboro;
+    align-items: flex-end;
+    display: flex;
 }
 
 #Texto {
@@ -42,7 +49,11 @@
     width: 100%;
 }
 
-.EditarEliminar{
+
+  
+
+.Botones{
+    margin-right: auto;
     background-color: #707980;
     border-style: none;
     padding: 4px 8px;
@@ -51,9 +62,6 @@
     color: white;
 }
 
-.Botones{
-    margin-right: auto;
-}
 
 .Lista{
     width: 49%;
@@ -63,10 +71,6 @@
 .Completado{
     width: 49%;
     padding: 10px;
-}
-
-.check{
-    margin-right: auto;
 }
 
 .Filas{
