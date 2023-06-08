@@ -1,0 +1,156 @@
+* {
+    cursor: default;
+    font-family: 'Libre Franklin', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* HEADER */
+header {
+    background-color: #3867d6;
+    box-sizing: border-box;
+    color: white;
+    height: 48px;
+    padding: 0 16px;
+}
+
+header > h1 {
+    float: left;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 48px;
+    position: relative;
+}
+
+header > p {
+    float: right;
+    font-size: 14px;
+    line-height: 48px;
+    position: relative;
+}
+
+/* CONTENT */
+.content {
+    height: calc(100% - 48px);
+    width: 100%;
+}
+
+/* ACCOUNT */
+.account {
+    background-color: #3867d6;
+    box-sizing: border-box;
+    color: white !important;
+    height: 128px;
+    padding-top: 16px;
+    text-align: center;
+    width: 100%;
+}
+
+.account > h1 {
+    font-size: 40px;
+}
+
+.account > a {
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* ACTIONS */
+.actions {
+    border-bottom: 1px solid grey;
+    float: left;
+    height: auto;
+    position: relative;
+    width: 100%;
+}
+
+.transfer {
+    box-sizing: border-box;
+    float: left;
+    padding: 16px;
+    position: relative;
+    width: 50%;
+}
+
+.actions .transfer:first-child {
+    border-right: 1px solid grey;
+}
+
+.transfer > h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.transfer > label {
+    font-size: 12px;
+}
+
+.transfer > input,
+.transfer > select {
+    box-sizing: border-box;
+    height: 32px;
+    margin: 8px 0;
+    padding: 8px;
+    width: 100%;
+}
+
+.transfer > button {
+    background-color: #3867d6;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    float: right;
+    margin: 8px 0;
+    padding: 8px;
+    position: relative;
+}
+
+/* SAVING */
+/* LIST */
+.saving,
+.list {
+    box-sizing: border-box;
+    float: left;
+    height: calc(100% - 400px);
+    overflow-y: auto;
+    padding: 16px;
+    position: relative;
+    width: 50%;
+}
+
+.saving {
+    border-right: 1px solid grey;
+}
+
+.saving > h3,
+.list > h3 {
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.saving > ul,
+.list > ul {
+    list-style: none;
+}
+
+.saving > ul li,
+.list > ul li {
+    padding: 16px 0
+}
+
+li > h3 {
+    font-weight: 400;
+}
+
+li > p {
+    font-size: 14px;
+}
+

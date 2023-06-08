@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;800&display=swap" rel="stylesheet">
+    <title>Bank Web</title>
+
+    <script>
+        const firebaseConfig = {
+apiKey: "AIzaSyA3pFv5mVT7suwXxud2q3eAGeoyPBKT-o4",
+authDomain: "ejempldom.firebaseapp.com",
+projectId: "ejempldom",
+storageBucket: "ejempldom.appspot.com",
+messagingSenderId: "720659958079",
+appId: "1:720659958079:web:dee8fd84c3a4158ef12b8a",
+measurementId: "G-2CWPZNWSTC"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.Firestore();
+console.log(db);
+
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Bank Web</h1>
+        <p>Cerrar Sesión</p>
+    </header>
+
+    <div class="content">
+        <div class="account">
+            <h1>$ 12, 030. 86</h1>
+            <a>Detalles de cuenta</a>
+        </div>
+        <div class="actions">
+            <div class="transfer">
+                <h3>Transferir o retirar</h3>
+
+                <label>Cantidad</label>
+                <input>
+
+                <label>No. de cuenta</label>
+                <input>
+
+                <button>Realizar</button>
+            </div>
+
+            <div class="transfer">
+                <h3>Agregar ahorro</h3>
+
+                <label>Cantidad</label>
+                <input>
+
+                <label>Tipo de ahorro</label>
+                <input>
+
+                <button>Realizar</button>
+            </div>
+        </div>
+        <div class="saving">
+            <h3>Ahorros</h3>
+            <ul id="saving-list">
+                <li>
+                    <h4>Escuela</h4>
+                    <h3>$ 400.00</h3>
+                    <p>Actualizado hace 4 días</p>
+                </li>
+                <li>
+                    <h4>Transporte</h4>
+                    <h3>$ 100.00</h3>
+                    <p>Actualizado hace 2 días</p>
+                </li>
+                <li>
+                    <h4>Comida</h4>
+                    <h3>$ 365.00</h3>
+                    <p>Actualizado hace 6 días</p>
+                </li>
+                <li>
+                    <h4>Clases de Inglés</h4>
+                    <h3>$ 90.00</h3>
+                    <p>Actualizado hace 4 días</p>
+                </li>
+                <li>
+                    <h4>Conciertos</h4>
+                    <h3>$ 800.00</h3>
+                    <p>Actualizado hace 9 días</p>
+                </li>
+            </ul>
+        </div>
+        <div class="list">
+            <h3>Movimientos en la cuenta</h3>
+            <ul id="movement-list">
+                <li>
+                    <h4>Waltmart Plaza de Toros</h4>
+                    <h3>$ 509.45 MXN</h3>
+                    <p>Realizado el 04/10/2023</p>
+                </li>
+                <li>
+                    <h4>Miniso Antea</h4>
+                    <h3>$ 89.99 MXN</h3>
+                    <p>Realizado el 04/10/2023</p>
+                </li>
+                <li>
+                    <h4>La Kafe</h4>
+                    <h3>$ 120.00 MXN</h3>
+                    <p>Realizado el 04/10/2023</p>
+                </li>
+                <li>
+                    <h4>Oxxo Gas 43</h4>
+                    <h3>$ 245.50 MXN</h3>
+                    <p>Realizado el 04/10/2023</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

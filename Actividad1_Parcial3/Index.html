@@ -1,96 +1,57 @@
 <!DOCTYPE html>
-<html lang ="en">
+<html lang="en">
 
-    <head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Eventos.js"></script>
+    <link rel="stylesheet" href="./Index.css">
+    <title>Actividad 1</title>
+</head>
 
-        <title>Actividad 1 </title>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Index.css">
-        <script src="Eventos.js"></script>
+<body>
+    <div class="Agregar">
+        <h1>Agregar Tarea</h1>
+        <input type="text" id="TextBox" placeholder="Ingrese una tarea">
+        <button id="B_Agregar" onclick="addTask()">Agregar</button>
+    </div>
 
-    </head>
-     <body>
-       
-        <div class="PrimeraParte">
-
-            <h1 class="Titulo">Agregar tarea</h1>
-    
-            <form action="">
-    
-                <div class="TextBoxAgregar">
-    
-                    <input type="text" id="Texto" placeholder="Agrega una tarea">
-                    <button onclick="addTask()" id="B_Agregar">Agregar</button>
-    
+    <div class="Proceso">
+        <h1>En proceso</h1>
+        <ul id="lista">
+            <li>
+                <input type="checkbox" onchange="completed(event)">
+                <p>Beber 2L de agua</p>
+                <div class="acciones">
+                    <button onclick="editarElemento(event)">Editar</button>
+                    <button onclick="deleteTask(event)">Eliminar</button>
                 </div>
-    
-            </form>
-            
+            </li>
+            <li>
+                <input type="checkbox" onchange="completed(event)">
+                <p>Mandar documentos de beca</p>
+                <div class="acciones">
+                    <button onclick="editarElemento(event)">Editar</button>
+                    <button onclick="deleteTask(event)">Eliminar</button>
+                </div>  
+            </li>
+        </ul>
+    </div>
+
+    <div class="Completado">
+        <div class = "Titulos">
+            <h1>Completado</h1>
+            <span class="empty" onclick="clearList()">Limpiar lista</span>
         </div>
-
-        <div class="ListaGeneral">
-
-            <div class="Lista">
-
-                <h1 class="Titulo"> En proceso </h1>
-
-                <div class="Filas", id="Filas">
-
-                    <div class="Tareas">
-
-                        <input type="checkbox" onchange="Completedo(event)">
-                        <label>Beber 2L de agua</label>
-
-                    </div>
-
-                    <div class="Botones">
-
-                        <button >Editar</button>
-                        <button onclick="deleteTask(event)">Eliminar</button>
-
-                    </div>
-
-                </div>
-
-                <div class="Filas">
-
-                    <div class="Tareas">
-
-                        <input type="checkbox" onchange="Completedo(event)">
-                        <label> Mandar documentos de beca</label>
-
-                    </div>
-
-                    <div class="Botones">
-
-                        <button >Editar</button>
-                        <button onclick="deleteTask(event)">Eliminar</button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="Completado">
-
-                <div class="Titulo">
-
-                    <h1 >Completado</h1>
-                    <h3> Limpiar </h3>
-
-                </div>
-                
-                
-                <label> <input type = "checkbox" id="cbTachado" checked = "True"> <del> Pagar Netflix </del>   </label>
-
-            </div>
-
-        </div>
-
-
-
+      
+            <ul id ="LC">
+                <li>
+                    <input type="checkbox" checked disabled>
+                    <p><strike>  Pagar Netflix       </strike></p>
+                </li>
+            </ul>
+    </div>
     </body>
+
 </html>

@@ -1,90 +1,77 @@
-
-
-*{
-    margin: 0px;
-    padding: 0px;
-    font-family: sans-serif;
-}
-
-.PrimeraParte{
-    padding: 10px;
-}
-
-.Titulo{
-    margin-bottom: 10px;
-    
-}
-
-.Titulo>h3{
-    color: gainsboro;
-    align-items: flex-end;
-    display: flex;
-}
-
-#Texto {
-    width: 300px;
-    height: 30px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+ul {
+    list-style: none;
+    padding-inline-start: 0px;
   }
 
-
-
+*{
+    font-family: sans-serif;
+}
 #B_Agregar{
-    padding: 8px 4px;
     background-color: blue;
     color: white;
-    border-style: none;
-    border-radius: 4px;
+    width: 72px;
+    height: 48px;
+    border-radius: 8px;
+    border-style: none;;
+    font-weight: bold;
 }
 
-.TextBoxAgregar {
-    display: flex;
+#TextBox{
+    width: 500px;
+    height: 40px;
 }
 
-.ListaGeneral{
-    display: flex;
-    width: 100%;
-}
-
-
-  
-
-.Botones{
-    margin-right: auto;
-    background-color: #707980;
-    border-style: none;
-    padding: 4px 8px;
-    border-radius: 2px;
-    margin: 2px;
-    color: white;
-}
-
-
-.Lista{
-    width: 49%;
-    padding: 10px;
+.Proceso{
+    float: left;
+    width: 50%;
 }
 
 .Completado{
-    width: 49%;
-    padding: 10px;
+    float: left;
+    width: 50%;  
 }
 
-.Filas{
-    display: flex;
-    justify-content: space-between;
-}
-
-.Tareas{
+#lista>li{
     display: flex;
     align-items: center;
-}
+    
+  }
 
-.Botones{
-    display: flex;
-    align-items: center;
-}
   
+  .acciones {
+    margin-left: auto;
+  }
+  
+
+  .acciones button {
+    width: 72px;
+    height: 24px;
+    background-color: #A9A9A9;
+    color: white;
+    border-color: #A9A9A9;
+    border-radius: 2px;
+    margin-right: 5px;
+  }
+
+  .Titulos {
+    display: flex;
+    align-items: center;
+  }
+  
+  .Titulos > h1 {
+    margin-right: 10px;
+  }
+  
+  .encabezado > .boton {
+    display: inline-block;
+    color: gray;
+  }
+  
+
+
+.Completado>ul> li{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+
+  }
