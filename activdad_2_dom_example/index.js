@@ -1,140 +1,214 @@
+var TotalValue = 0;
+var SavingsValue = [];
+var movements = [];
 
-
-let totalValue = 12030.86;
-let savings = [
-    {
-        type: 'Escuela',
-        value: 100,
-        lastChange: '04/06/2023'
-    },
-    {
-        type: 'Doctor',
-        value: 30,
-        lastChange: '02/06/2023'
-    }
-];
-
-window.addEventListener('load', (event) => {
-    console.log(event);
-    loadTotalValue(totalValue);
-    loadSavings()
-});
+const UserCollection = database.collection('user-info');
+const SavingCollection = database.collection('savings-data');
+const MovementsCollection = database.collection('movements-data');
 
 function loadTotalValue(value){
-    if (!value) {
-        return
+    if(!value)
+        return;
+    const totalElement = document.getElementById("DineroTotal");
+    totalElement.innerText =  "$ " + TotalValue.toLocaleString() + ' MXN';
+}
+
+function loadSavingsValue(){
+    const savingListElement = document.getElementById('saving-list');
+
+    if(savingListElement.children.length){
+        savingListElement.innerHTML = '';
     }
-    const totalElement = document.getElementById('total');
-    totalElement.innerText = "$ " + value.toLocaleString();
+
+    SavingCollection.get().then(function(QuerySnapshot){
+        QuerySnapshot.forEach(function(doc){
+            SavingsValue = [];
+            var data = doc.data();
+            SavingsValue.push(data);
+            
+            console.log(SavingsValue);
+
+            SavingsValue.forEach(saving => {
+                const savingLiElement = document.createElement('li');
+                const savingH4Element = document.createElement('h4');
+                const savingH3Element = document.createElement('h3');
+                const savingPElement = document.createElement('p');
+
+                savingH4Element.innerText = getStringValue(saving.type);
+                savingH3Element.innerText = '$ ' + saving.value.toFixed(2) + ' MXN';
+                savingPElement.innerText = 'Actualizado el ' + saving.lastChange;
+
+                
+                savingLiElement.append(savingH4Element, savingH3Element, savingPElement);
+                savingListElement.appendChild(savingLiElement);
+            });
+        })
+    }).catch(function(error){
+        console.log(error);
+    });
+    
 }
 
-function loadSavings(){
-    const savingList = document.getElementById('saving-list');
-    savingList.innerHTML = '';
-    savings.forEach(saving => {
-        console.log(saving);
-        // Crear elementos dinamicos
-
-        const savingLiElement = document.createElement('li');
-        const savingH4Element = document.createElement('h4');
-        const savingH3Element = document.createElement('h3');
-        const savingPElement = document.createElement('p');
-
-        // Guardar o asignarles data/valor
-
-        savingH4Element.innerText = getStringType(saving.type);
-        savingH3Element.innerText = saving.value;
-        savingPElement.innerText = saving.lastChange;
-
-        savingLiElement.append(savingH4Element, savingH3Element, savingPElement);
-        savingList.appendChild(savingLiElement);
-    })
-}
-
-function getStringType(type){
+function getStringValue(type){
     switch (type){
-        case 'Escuela':
+        case 'school':
             return 'Escuela';
-        case 'Doctor':
+        case 'doctor':
             return 'Doctor';
-        case 'Gasolina':
+        case 'gasoline':
             return 'Gasolina';
-        case 'Comida':
+        case 'food':
             return 'Comida';
         default:
             return 'Otro';
-    }}
-
-    function loadMovement(){
-        const movementList = document.getElementById('movement-list');
-        movementList.innerHTML = '';
-        movemnts.forEach(movement =>  {
-
-            //Crear elementos
-            const movementLiElement = document.createElement('li');
-            const movementH4Element = document.createElement('h4');
-            const movementH3Element = document.createElement('h3');
-            const movementPElement = document.createElement('p');
-
-            //Guardar elementos
-            movementH4Element.innerText = movement.location;
-            movementH3Element.innerText = '$' + (movement.charge).toFixed(2);
-            movementPElement.innerText = 'Realizado el ' + movement.lastChange;
-
-
-            movementLiElement.append(movementH4Element, movementH3Element, movementPElement);
-            movementList.appendChild(movementLiElement);
-
- 
-
-        })
     }
+}
 
-
-    function onTransfer(){
-
-        const amountInput = document.getElementById('amount');
-
-        const amountValue = amountInput.value;
-
-        if(totalValue > amountValue){
-            totalValue = totalValue - amountValue;
-            loadTotalValue(totalValue);
-
-            const newMovement = {
-                location: 'Transferencia',
-                charge: Number(amountValue),
-                lastChange: new Date().toLocaleDateString()
-            };
-
-
-        }
-
+function loadMovementsValue(){
+    const movementListElement = document.getElementById('movement-list');
+    if(movementListElement.children.length){
+        movementListElement.innerHTML = '';
     }
+    
+    MovementsCollection.get().then(function(QuerySnapshot){
+        QuerySnapshot.forEach(function(doc){
+            movements = [];
+            var data = doc.data();
+            movements.push(data);
 
-    function onSave(){
-        const amountInput = document.getElementById('amountSave');
-        const SaveSelect = document.querySelector('select[name="savings"]');
+            console.log(movements);
 
-        const amountValue = amountInput.value;
-        const SaveValue = SaveSelect.value;
-
-        totalValue = totalValue - amountValue;
-        loadTotalValue(totalValue);
+            movements.forEach(movement => {
+                const movementLiElement = document.createElement('li');
+                const movementH4Element = document.createElement('h4');
+                const movementH3Element = document.createElement('h3');
+                const movementPElement = document.createElement('p');
         
-        const newSavings = {
-            type: SaveValue,
+                movementH4Element.innerText = movement.location;
+                movementH3Element.innerText = '$ ' + movement.charge.toFixed(2) + ' MXN';
+                movementPElement.innerText = 'Realizado el ' + movement.lastChange;
+        
+                
+                movementLiElement.append(movementH4Element, movementH3Element, movementPElement);
+                movementListElement.appendChild(movementLiElement);
+            });
+        })
+    }).catch(function(error){
+        console.log(error);
+    });
+}
+
+function onTransfer(){
+    const amountInput = document.getElementById('amount');
+    const amountValue = amountInput.value;
+
+    if(!amountValue){
+        return;
+    }
+
+    if(TotalValue > amountValue){
+        TotalValue = TotalValue - amountValue;
+        loadTotalValue(TotalValue);
+
+        UserCollection.get().then(function(QuerySnapshot){
+            QuerySnapshot.forEach(function(doc){
+                database.collection('user-info')
+                    .doc(doc.id)
+                    .update({totalValue: TotalValue});
+            })
+        }).catch(function(error){
+            console.log(error);
+        });
+
+        const newMovement = {
+            location: 'Transferencia',
+            charge: Number(amountValue),
+            lastChange: new Date().toLocaleDateString()
+        };
+
+        database.collection('movements-data')
+            .add(newMovement)
+            .then(function(newDoc){
+                console.log('Movimiento registrado! ', newDoc)
+            }).catch(function(error){
+                console.log('Error al agregar movimiento! ',error)
+            })
+
+        amountInput.value = '';
+        loadMovementsValue();
+    }
+}
+
+function onSave(){
+    const amountInput = document.getElementById("amountSave");
+    const SaveSelect = document.querySelector('select[name="saving"]');
+    
+    const amountValue = amountInput.value;
+    const saveValue = SaveSelect.value;
+
+    if(!amountValue){
+        return;
+    }
+
+    if(TotalValue > amountValue){
+        TotalValue = TotalValue - amountValue;
+        loadTotalValue(TotalValue);
+
+        UserCollection.get().then(function(QuerySnapshot){
+            QuerySnapshot.forEach(function(doc){
+                database.collection('user-info')
+                    .doc(doc.id)
+                    .update({totalValue: TotalValue});
+            })
+        }).catch(function(error){
+            console.log(error);
+        });
+
+        const newSaving = {
+            type: saveValue,
             value: Number(amountValue),
             lastChange: new Date().toLocaleDateString()
         };
-        savings.map(saving => {
-
+        SavingsValue.map(saving => {
             if(saving.type === newSaving.type){
                 saving.value = saving.value + newSaving.value;
             }
+        })
 
+        SavingCollection.get().then(function(QuerySnapshot){
+            QuerySnapshot.forEach(function(doc){
+                var data = doc.data();
+                if(data.type === newSaving.type){
+                    database.collection('savings-data')
+                        .doc(doc.id)
+                        .update({ 
+                            value: data.value + newSaving.value,
+                            lastChange: newSaving.lastChange
+                        });
+                    loadSavingsValue();
+                }
+            })
+        }).catch(function(error){
+            console.log(error);
         });
-        loadSavings();
 
+        amountInput.value = '';
     }
-        
+}
+
+window.addEventListener('load', function(event){
+    UserCollection.get().then(function(QuerySnapshot){
+        QuerySnapshot.forEach(function(doc){
+            var data = doc.data();
+            TotalValue = data.totalValue;
+            loadTotalValue(TotalValue);
+            console.log(data);
+        })
+    }).catch(function(error){
+        console.log(error);
+    });
+    loadTotalValue(TotalValue);
+    loadSavingsValue();
+    loadMovementsValue();
+})
+

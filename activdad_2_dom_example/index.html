@@ -10,9 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;800&display=swap" rel="stylesheet">
     <title>Bank Web</title>
 
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+
     <script>
         const firebaseConfig = {
-apiKey: "AIzaSyA3pFv5mVT7suwXxud2q3eAGeoyPBKT-o4",
+        apiKey: "AIzaSyA3pFv5mVT7suwXxud2q3eAGeoyPBKT-o4",
 authDomain: "ejempldom.firebaseapp.com",
 projectId: "ejempldom",
 storageBucket: "ejempldom.appspot.com",
@@ -20,8 +23,10 @@ messagingSenderId: "720659958079",
 appId: "1:720659958079:web:dee8fd84c3a4158ef12b8a",
 measurementId: "G-2CWPZNWSTC"
 };
+
+
 firebase.initializeApp(firebaseConfig);
-const db = firebase.Firestore();
+const db = firebase.firestore();
 console.log(db);
 
     </script>
